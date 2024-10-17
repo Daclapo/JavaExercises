@@ -9,8 +9,10 @@ public class HiloCuenta implements Runnable {
 
 	@Override
 	public void run() {
-		contador.incrementar();
-		System.out.println(contador.valor());
+		synchronized (contador) {
+			contador.incrementar();
+			System.out.println(contador.valor());
+		}
 	}
 }
 

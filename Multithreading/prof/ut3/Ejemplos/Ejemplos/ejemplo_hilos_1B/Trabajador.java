@@ -1,4 +1,4 @@
-package ejemplo_hilos_1B;
+package org.ejercicios.prof.ut3.Ejemplos.Ejemplos.ejemplo_hilos_1B;
 
 
 public class Trabajador implements Runnable
