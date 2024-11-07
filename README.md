@@ -1,45 +1,44 @@
 # Java Exercises
 
-Welcome! This repository is a collection of Java exercises completed during my **Grado Superior en Desarrollo de Aplicaciones Multiplataformas** course. Here, you will find a variety of tasks and projects that demonstrate my understanding of Java and software development principles.
+Welcome! This repository is a compilation of Java exercises from my **_Grado Superior en Desarrollo de Aplicaciones Multiplataformas_** program at [IES Clara del Rey](https://iesclaradelrey.es/), along with independently developed projects. These works showcase my learning and growth in Java programming and software development principles.
 
 ---
 
 ## Description
 
-This repository encompasses a wide range of exercises designed to enhance my programming skills in Java. The exercises cover various topics, including:
+This repository includes a broad selection of exercises designed to strengthen core Java programming skills and deepen understanding of software development principles. The exercises cover a range of essential topics, including:
 
-- Object-oriented programming principles
-- Exception handling
-- Multithreading and concurrency
-- Database access and manipulation
-- File handling
-- Data structures and algorithms
-- ...
+- **Object-Oriented Programming (OOP):** Principles of OOP, such as encapsulation, inheritance, and polymorphism, applied to create modular and reusable code.
+- **Error and Exception Handling:** Techniques for identifying, managing, and recovering from errors to build robust and fault-tolerant applications.
+- **Concurrency and Multithreading:** Concepts and practices in managing concurrent processes and threads, ensuring efficient execution and resource-sharing.
+- **Data Management and Persistence:** Techniques for accessing, manipulating, and persisting data in databases using JDBC and other data-access frameworks.
+- **File I/O Operations:** Working with file input/output streams, serialization, and handling data files such as XML files for practical application needs.
 
-Each exercise is structured to reflect the learning objectives of the curriculum and includes source code, explanations, and any relevant documentation.
+Each exercise is organized to align with the curriculum's learning objectives and includes source code, explanations, and relevant documentation.
 
 ---
 
 ### Directory Structure
 
-| **Directory**          | **Description**                          |
-|------------------------|------------------------------------------|
-| **Basics**             | First Program                            |
-| **Strings&Scanners**   | Working with strings and scanner inputs  |
-| **Loops&Conditionals** | Control flow with loops and conditionals |
-| **Arrays&Matrices**    | Handling arrays and matrices             |
-| **OOP1**               | Introduction to Object-Oriented Programming |
-| **Collections**        | Using Java Collections Framework         |
-| **Exceptions**         | Exception handling techniques            |
-| **OOP2**               | Advanced Object-Oriented Programming     |
-| **FileHandling**       | Reading and writing files                |
-| **Databases**          | Database access and manipulation         |
-| **FunctionalProg.**    | Functional programming in Java           |
-| **Multithreading**     | Multithreading and concurrency           |
-| **OtherProjects**      | Miscellaneous projects                   |
+Each directory is named after core programming topics. The naming conventions and organization align with course modules, making it easy to locate related exercises.
 
+| **Directory**          | **Description**                                                      |
+|------------------------|----------------------------------------------------------------------|
+| **Basics**             | Introduction to Java with a first program and fundamental syntax     |
+| **Strings&Scanners**   | Exercises involving string manipulation and user input with scanners |
+| **Loops&Conditionals** | Control flow logic using loops and conditional statements           |
+| **Arrays&Matrices**    | Working with arrays, multidimensional arrays, and basic algorithms   |
+| **OOP1**               | Core Object-Oriented Programming concepts and principles             |
+| **Collections**        | Utilizing Java Collections Framework for data storage and manipulation |
+| **Exceptions**         | Techniques for handling exceptions and managing error flows         |
+| **OOP2**               | Advanced OOP topics, including interfaces, inheritance, and polymorphism |
+| **FileHandling**       | Reading from and writing to files, serialization, and data processing |
+| **Databases**          | Interfacing with databases, querying, and managing persistence with JDBC |
+| **FunctionalProg.**    | Introduction to functional programming concepts in Java             |
+| **Multithreading**     | Includes exercises on concurrency, synchronization, and thread-safe operations|
+| **OtherProjects**      | Additional projects covering a variety of programming challenges     |
 
-Each subdirectory contains individual exercises with README files detailing specific requirements and objectives.
+Each subdirectory contains individual exercises, often accompanied by a README detailing specific requirements and objectives.
 
 ---
 
@@ -53,33 +52,25 @@ Additionally, I would like to thank my *Programación de Servicios y Procesos* t
 
 ## Getting Started
 
-To work with this repository, you can clone it to your local machine and start exploring the exercises.
+To work with this repository, follow these steps:
 
-### Step 1: Clone the Repository
+### Prerequisites
 
-Use the following command to clone this repository:
+Java Development Kit (JDK) version 8 or higher.
+An Integrated Development Environment (IDE) such as IntelliJ IDEA, Eclipse, or NetBeans.
 
+### Installation
+
+
+Clone the repository:
 ```bash
 git clone https://github.com/Daclapo/JavaExercises.git
 cd JavaExercises
 ```
+Import the project into your preferred IDE as a Maven project.
 
-### Step 2: Running Exercises
-#### · Compiling all the .java files
-Each exercise typically includes a main class or method to execute. Navigate to the relevant directory and compile the Java files as needed.
+### Running Exercises
 
-```bash
-javac *.java
-java MainClassName
-```
-or moving to de specific .java file and compiling it
-```bash
-cd Colections/ut08/ejercicios/ejercicio05/Ejercicio05.java
-javac Ejercicio05.java
-java Ejercicio05.class
-```
-
-#### · Opening the exercises with an IDE
 
 You can open the exercises in your favorite IDE, such as IntelliJ IDEA, Eclipse, or NetBeans. Simply import the project as a Maven project and you will be ready to start.
 
@@ -89,11 +80,29 @@ You can open the exercises in your favorite IDE, such as IntelliJ IDEA, Eclipse,
 4. Select the `pom.xml` file to import the Maven project.
 5. Follow the IDE instructions to complete the import.
 
-Once imported, you can explore and run the exercises directly from the IDE.
+Once imported, you can explore and run and build the exercises and projects directly from the IDE.
+
+If not you can also;
+
+Compile all the Java files in a directory:
+```bash
+ javac *.java
+```
+
+Run a specific main class:
+```bash
+java MainClassName
+```
+
+Alternatively, compile and run a specific Java file:
+```bash
+cd Colections/ut08/ejercicios/ejercicio05/
+javac Ejercicio05.java
+java Ejercicio05
+```
+
 
 ---
-
-
 
 
 
