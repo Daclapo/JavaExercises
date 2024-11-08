@@ -1,4 +1,4 @@
-package org.ejercicios.prof.ut3.Ejemplos.Ejemplos.ejemplo_hilos_1A;
+package ejemplo_hilos_1A;
 
 public class Trabajador extends Thread{
 
