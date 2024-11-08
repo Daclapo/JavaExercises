@@ -22,21 +22,23 @@ Each exercise is organized to align with the curriculum's learning objectives an
 
 Each directory is named after core programming topics. The naming conventions and organization align with course modules, making it easy to locate related exercises.
 
-| **Directory**          | **Description**                                                      |
-|------------------------|----------------------------------------------------------------------|
-| **Basics**             | Introduction to Java with a first program and fundamental syntax     |
-| **Strings&Scanners**   | Exercises involving string manipulation and user input with scanners |
-| **Loops&Conditionals** | Control flow logic using loops and conditional statements           |
-| **Arrays&Matrices**    | Working with arrays, multidimensional arrays, and basic algorithms   |
-| **OOP1**               | Core Object-Oriented Programming concepts and principles             |
-| **Collections**        | Utilizing Java Collections Framework for data storage and manipulation |
-| **Exceptions**         | Techniques for handling exceptions and managing error flows         |
-| **OOP2**               | Advanced OOP topics, including interfaces, inheritance, and polymorphism |
-| **FileHandling**       | Reading from and writing to files, serialization, and data processing |
-| **Databases**          | Interfacing with databases, querying, and managing persistence with JDBC |
-| **FunctionalProg.**    | Introduction to functional programming concepts in Java             |
-| **Multithreading**     | Includes exercises on concurrency, synchronization, and thread-safe operations|
-| **OtherProjects**      | Additional projects covering a variety of programming challenges     |
+| **Directory**                                                                                            | **Description**                                                                  |
+|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| [**Basics**](https://github.com/Daclapo/JavaExercises/tree/main/Basics/ut01-02/src/primerprograma)       | Introduction to Java with a first program and fundamental syntax                 |
+| [**Strings&Scanners**](https://github.com/Daclapo/JavaExercises/tree/main/Strings&Scanners/ut03)         | Exercises involving string manipulation and user input with scanners             |
+| [**Loops&Conditionals**](https://github.com/Daclapo/JavaExercises/tree/main/Loops&Conditionals/ut04)     | Control flow logic using loops and conditional statements                        |
+| [**Arrays&Matrices**](https://github.com/Daclapo/JavaExercises/tree/main/Arrays&Matrices/ut05)           | Working with arrays, multidimensional arrays, and basic algorithms               |
+| [**OOP1**](https://github.com/Daclapo/JavaExercises/tree/main/OOP1/ut06)                                 | Core Object-Oriented Programming concepts and principles                         |
+| [**Collections**](https://github.com/Daclapo/JavaExercises/tree/main/Collections/ut08)                   | Utilizing Java Collections Framework for data storage and manipulation           |
+| [**Exceptions**](https://github.com/Daclapo/JavaExercises/tree/main/Exceptions/ut09)                     | Techniques for handling exceptions and managing error flows                      |
+| [**OOP2**](https://github.com/Daclapo/JavaExercises/tree/main/OOP2/ut11)                                 | Advanced OOP topics, including interfaces, inheritance, and polymorphism         |
+| [**FileHandling**](https://github.com/Daclapo/JavaExercises/tree/main/FileHandling/ut12)                 | Reading from and writing to files, serialization, and data processing            |
+| [**Databases**](https://github.com/Daclapo/JavaExercises/tree/main/Databases)                            | Interfacing with databases, querying, and managing persistence with JDBC         |
+| [**FunctionalProg.**](https://github.com/Daclapo/JavaExercises/tree/main/FunctionalProgramming/ejemplos) | Introduction to functional programming concepts in Java                          |
+| [**Multithreading**](https://github.com/Daclapo/JavaExercises/tree/main/Multithreading)                  | Includes exercises on concurrency, synchronization, and thread-safe operations   |
+| [**OtherProjects**](https://github.com/Daclapo/JavaExercises/tree/main/OtherProjects)                    | Additional projects covering a variety of programming challenges                 |
+
+
 
 Each subdirectory contains individual exercises, often accompanied by a README detailing specific requirements and objectives.
 
