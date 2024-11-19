@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cities-weather-summary>
+    <city id="c001" name="madrid">
+        <average-temperature>
+            <max>22,00</max>
+            <min>11,00</min>
+        </average-temperature>
+        <average-humidity>75,00</average-humidity>
+        <average-pressure>1014,67</average-pressure>
+    </city>
+    <city id="c002" name="barcelona">
+        <average-temperature>
+            <max>22,00</max>
+            <min>11,00</min>
+        </average-temperature>
+        <average-humidity>75,00</average-humidity>
+        <average-pressure>1014,67</average-pressure>
+    </city>
+    <city id="c003" name="valencia">
+        <average-temperature>
+            <max>22,00</max>
+            <min>11,00</min>
+        </average-temperature>
+        <average-humidity>75,00</average-humidity>
+        <average-pressure>1014,67</average-pressure>
+    </city>
+</cities-weather-summary>

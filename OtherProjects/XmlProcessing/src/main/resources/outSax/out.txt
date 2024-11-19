@@ -1,0 +1,18 @@
+Madrid
+----------------------------------------------------------------------
+ T mínima	  T máxima		T media		Humedad media	Presión media
+	12,67		 18,67		  15,67			    75,00		  1014,67
+
+
+Barcelona
+----------------------------------------------------------------------
+ T mínima	  T máxima		T media		Humedad media	Presión media
+	12,67		 18,67		  15,67			    75,00		  1014,67
+
+
+Valencia
+----------------------------------------------------------------------
+ T mínima	  T máxima		T media		Humedad media	Presión media
+	12,67		 18,67		  15,67			    75,00		  1014,67
+
+
