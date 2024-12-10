@@ -53,7 +53,7 @@ public class Staff {
 	@JoinColumn(name = "store_id")
 	private Store store;     //	La tienda a la que está asociado el empleado
 
-	@ManyToMany
+	@OneToMany(mappedBy = "rentor")
 	private Collection<Rental> rentals;  //	Los alquileres que ha realizado
 
 

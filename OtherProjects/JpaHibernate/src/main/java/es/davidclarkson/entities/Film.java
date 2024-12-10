@@ -72,8 +72,9 @@ public class Film {
 	@JoinColumn(name = "original_language_id")
 	private Language originalLanguage;   //	El idioma original de la película
 
-	@OneToMany(mappedBy = "film")
-	private Set<FilmActor> filmActors = new LinkedHashSet<>();
+	@ManyToMany()
+	@JoinTable(name = "film_actor", joinColumns = {@JoinColumn(name = "actor_id")}, inverseJoinColumns = {@JoinColumn(name = "film_id")})
+	private Set<Actor> filmActors = new LinkedHashSet<>();
 
 	@OneToMany(mappedBy = "film")
 	private Set<Inventory> inventories = new LinkedHashSet<>();

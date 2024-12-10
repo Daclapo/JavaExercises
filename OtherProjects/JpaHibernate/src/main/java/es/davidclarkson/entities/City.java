@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.Instant;
 import java.util.LinkedHashSet;
@@ -25,15 +27,13 @@ public class City {
 
 	// El país al que pertenece
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "country_id", nullable = false)
-	private es.davidclarkson.entities.Country country;
+	private Country country;
 
 	@ColumnDefault("current_timestamp()")
 	@Column(name = "last_update", nullable = false)
 	private Instant lastUpdate;
-
-	@OneToMany(mappedBy = "city")
-	private Set<Address> addresses = new LinkedHashSet<>();
 
 
 

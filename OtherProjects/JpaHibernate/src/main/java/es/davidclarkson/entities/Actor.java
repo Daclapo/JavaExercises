@@ -29,7 +29,7 @@ public class Actor {
 
 	// Colección de películas en las que participa
 	@ManyToMany()
-	@JoinTable(name = "film_actor", joinColumns = {@JoinColumn(name = "actor_id")}, inverseJoinColumns = {@JoinColumn(name = "film_id")})
+	@JoinTable(name = "film_actor", joinColumns = {@JoinColumn(name = "film_id")}, inverseJoinColumns = {@JoinColumn(name = "actor_id")})
 	private Collection<Film> films;
 
 }

@@ -27,10 +27,10 @@ public class InformeCliente {
 
 
 			System.out.println("\n\nInforme de Situacion de Cliente:");
-			System.out.println("\nDatos del Cliente:\n" + getDatosCliente(id));
-			System.out.println("\nTiendas Asociadas:\n" + getTiendasAsociadas(id));
-			System.out.println("\nHistorial de Alquileres:\n" + getHistAlquileres(id));
-			System.out.println("\nHistorial de Pagos:\n" + getHistPagos(id));
+			System.out.println("\n_____________________\nDatos del Cliente:\n" + getDatosCliente(id));
+			System.out.println("\n_____________________\nTiendas Asociadas:\n" + getTiendasAsociadas(id));
+			System.out.println("\n_____________________\nHistorial de Alquileres:\n" + getHistAlquileres(id));
+			System.out.println("\n_____________________\nHistorial de Pagos:\n" + getHistPagos(id));
 
 		} while (!Objects.equals(id, "0") && !Objects.equals(id, ""));
 	}
@@ -44,11 +44,13 @@ public class InformeCliente {
 
 			Customer c = em.find(Customer.class, Short.parseShort(id));
 
-			ret = ret + "ID:\t\t" + c.getId().toString();
+			ret = ret + "ID:\t\t\t" + c.getId().toString();
 			ret = ret + "\nFirst Name:\t" + c.getFirstName();
 			ret += "\nLast Name:\t" + c.getLastName();
-			ret += "\nEmail:\t" + c.getEmail();
-			ret += "\nAddress:\t" + c.getAddress().toString() + ", " + c.getAddress().getCity().toString() + ", " + c.getAddress().getDistrict().toString();
+			ret += "\nEmail:\t\t" + c.getEmail();
+			ret += "\nAddress:\t" + c.getAddress().getAddress() + ", " + c.getAddress().getPostalCode() + ", "
+					+ c.getAddress().getDistrict() + ", " + c.getAddress().getCity().getName() + ", "
+					+ c.getAddress().getCity().getCountry().getName();
 		}
 		return ret;
 	}
@@ -72,7 +74,7 @@ public class InformeCliente {
 					ret.append("El cliente no tiene una tienda asociada.\n");
 				}
 			} else {
-				ret.append("No se encontró el cliente con ID: ").append(id);
+				ret.append("No se ha encontrado el cliente con ID: ").append(id);
 			}
 		} catch (NumberFormatException e) {
 			ret.append("ID de cliente inválido");
@@ -109,7 +111,7 @@ public class InformeCliente {
 					i++;
 				}
 			} else {
-				ret.append("No se encontró el cliente con ID: ").append(id);
+				ret.append("No se ha encontrado el cliente con ID: ").append(id);
 			}
 		} catch (NumberFormatException e) {
 			ret.append("ID de cliente inválido");
@@ -140,7 +142,7 @@ public class InformeCliente {
 					i++;
 				}
 			} else {
-				ret.append("No se encontró el cliente con ID: ").append(id);
+				ret.append("No se ha encontrado el cliente con ID: ").append(id);
 			}
 		} catch (NumberFormatException e) {
 			ret.append("ID de cliente inválido");

@@ -39,7 +39,7 @@ public class Rental {
 
 
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "staff_id")
 	private Staff rentor;        //	El empleado que realizó el alquiler
 
