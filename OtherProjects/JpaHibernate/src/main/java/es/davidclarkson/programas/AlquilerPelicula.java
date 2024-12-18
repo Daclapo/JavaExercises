@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Scanner;
 
 public class AlquilerPelicula {
@@ -16,9 +17,9 @@ public class AlquilerPelicula {
 		try (EntityManagerFactory factory = Persistence.createEntityManagerFactory("sakila");
 		     EntityManager em = factory.createEntityManager()) {
 
-			System.out.println("\n\n_____________________________________\n   Sistema de Alquiler de Películas   \n_____________________________________\n");
+			System.out.println("\n\n______________________________________\n   Sistema de Alquiler de Películas   " +
+					"\n______________________________________\n");
 
-			// Solicitar datos
 			System.out.print("Introduzca el id del empleado (staff_id): ");
 			String empleadoId = sc.nextLine();
 
@@ -28,27 +29,29 @@ public class AlquilerPelicula {
 			System.out.print("Introduzca el id del cliente (customer_id): ");
 			String clienteId = sc.nextLine();
 
-			// Validar el empleado y obtener su tienda
-			Staff empleado = em.find(Staff.class, Byte.parseByte(empleadoId));
+
+			Staff empleado = em.find(Staff.class, Short.parseShort(empleadoId));
 			if (empleado == null) {
-				System.out.println("El empleado con ID " + empleadoId + " no existe. Operación cancelada.");
+				System.out.println("El empleado con ID " + empleadoId + " no existe." +
+						"\n(Solo existen empleados con ID (1 y 2))" +
+						"\nProceso de creación de alquiler cancelado.");
 				return;
 			}
 
 			Store tienda = empleado.getStore();
 			if (tienda == null) {
-				System.out.println("No se encontró una tienda asociada al empleado con ID " + empleadoId + ". Operación cancelada.");
+				System.out.println("No se encontró una tienda asociada al empleado con ID " + empleadoId +
+						"\nProceso de creación de alquiler cancelado.");
 				return;
 			}
 
-			// Validar la película
 			Film pelicula = em.find(Film.class, Short.parseShort(peliculaId));
 			if (pelicula == null) {
-				System.out.println("La película con ID " + peliculaId + " no existe. Operación cancelada.");
+				System.out.println("La película con ID " + peliculaId + " no existe." +
+						"\nProceso de creación de alquiler cancelado.");
 				return;
 			}
 
-			// Validar que la película está disponible en la tienda
 			Inventory inventarioDisponible = null;
 			for (Inventory inventario : pelicula.getInventories()) {
 				if (inventario.getStore().getId().equals(tienda.getId())) {
@@ -57,25 +60,30 @@ public class AlquilerPelicula {
 				}
 			}
 			if (inventarioDisponible == null) {
-				System.out.println("La película no está disponible en el inventario de la tienda del empleado. Operación cancelada.");
+				System.out.println("La película no está disponible en el inventario de la tienda del empleado." +
+						"\nProceso de creación de alquiler cancelado.");
 				return;
 			}
 
-			// Verificar copias disponibles (puedes usar procedimientos almacenados si es necesario)
-			boolean hayCopiasDisponibles = verificarCopiasDisponibles(em, inventarioDisponible);
+			boolean hayCopiasDisponibles = verificarCopiasDisponibles(
+					em,
+					inventarioDisponible.getFilm().getId(),
+					inventarioDisponible.getStore().getId()
+			);
+
 			if (!hayCopiasDisponibles) {
-				System.out.println("No hay copias disponibles de la película en el inventario. Operación cancelada.");
+				System.out.println("No hay copias de la película disponibles actualmente en el inventario." +
+						"\nProceso de creación de alquiler cancelado.");
 				return;
 			}
 
-			// Validar el cliente
 			Customer cliente = em.find(Customer.class, Short.parseShort(clienteId));
 			if (cliente == null) {
-				System.out.println("El cliente con ID " + clienteId + " no existe. Operación cancelada.");
+				System.out.println("El cliente con ID " + clienteId + " no existe." +
+						"\nProceso de creación de alquiler cancelado.");
 				return;
 			}
 
-			// Crear el alquiler
 			em.getTransaction().begin();
 			try {
 				Rental nuevoAlquiler = new Rental();
@@ -88,35 +96,39 @@ public class AlquilerPelicula {
 				em.persist(nuevoAlquiler);
 				em.getTransaction().commit();
 
-				System.out.println("El alquiler se ha registrado exitosamente.");
+				System.out.println("El alquiler se ha registrado correctamente.");
 				System.out.println("Detalles del Alquiler:");
-				System.out.println("Empleado: " + empleado.getFirstName() + " " + empleado.getLastName());
-				System.out.println("Película: " + pelicula.getTitle());
-				System.out.println("Cliente: " + cliente.getFirstName() + " " + cliente.getLastName());
+				System.out.println("Empleado:\t" + empleado.getFirstName() + " " + empleado.getLastName());
+				System.out.println("Película:\t" + pelicula.getTitle());
+				System.out.println("Cliente:\t" + cliente.getFirstName() + " " + cliente.getLastName());
 			} catch (Exception e) {
 				em.getTransaction().rollback();
-				System.out.println("Ocurrió un error al registrar el alquiler. Operación cancelada.");
+				System.out.println("Hubo un error al registrar el alquiler.\nProceso de creacion de alquiler cancelado.");
 				e.printStackTrace();
 			}
 
 		} catch (NumberFormatException e) {
-			System.out.println("Uno o más ID proporcionados no son válidos.");
+			System.out.println("Por lo menos un ID de los proporcionados no es válido.");
 		}
 	}
 
-	/**
-	 * Verifica si hay copias disponibles de una película en un inventario.
-	 * Aquí se puede usar un procedimiento almacenado de Sakila para obtener esta información.
-	 */
-	private static boolean verificarCopiasDisponibles(EntityManager em, Inventory inventario) {
+
+	private static boolean verificarCopiasDisponibles(EntityManager em, short filmId, short storeId) {
 		try {
-			long alquileresActivos = em.createQuery(
-							"SELECT COUNT(r) FROM Rental r WHERE r.inventory.id = :inventoryId AND r.returnDate IS NULL", Long.class)
-					.setParameter("inventoryId", inventario.getId())
-					.getSingleResult();
-			return alquileresActivos == 0; // Si no hay alquileres activos, hay copias disponibles
+			List<Integer> copiasDisponibles = (List<Integer>) em.createNativeQuery(
+							"SELECT i.inventory_id " +
+									"FROM inventory i " +
+									"WHERE i.film_id = ? AND i.store_id = ? " +
+									"AND NOT EXISTS (" +
+									"  SELECT 1 FROM rental r " +
+									"  WHERE r.inventory_id = i.inventory_id AND r.return_date IS NULL" +
+									")")
+					.setParameter(1, filmId)
+					.setParameter(2, storeId)
+					.getResultList();
+			return !copiasDisponibles.isEmpty(); // Si hay al menos una copia, hay disponibilidad.
 		} catch (Exception e) {
-			System.out.println("Ocurrió un error al verificar las copias disponibles.");
+			System.out.println("Hubo un error al verificar las copias disponibles.");
 			return false;
 		}
 	}
