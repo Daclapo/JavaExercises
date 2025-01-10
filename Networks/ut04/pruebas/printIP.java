@@ -1,4 +1,4 @@
-package es.davidclarkson.practicas.ut04;
+package es.davidclarkson.practicas.ut04.pruebas;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
