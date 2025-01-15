@@ -1,12 +1,11 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+@Entity
 @Table(name = "shipments")
 public class Shipment {
 
@@ -19,7 +18,7 @@ public class Shipment {
 	private int orderId;
 
 	@Column(name = "shipment_date", nullable = false)
-	private Timestamp shipmentDate;
+	private LocalDateTime shipmentDate;
 
 	@Column(name = "zip_code", nullable = false)
 	private String zipCode;

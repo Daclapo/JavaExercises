@@ -3,12 +3,14 @@ package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+@Entity
 @Table(name = "orders")
 public class Order {
 
 	@Id
-	@GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id")
 	private int orderId;
 
@@ -21,6 +23,6 @@ public class Order {
 	private double orderTotal;
 
 	@Column(name = "order_date", nullable = false)
-	private Timestamp orderDate;
+	private LocalDateTime orderDate;
 
 }

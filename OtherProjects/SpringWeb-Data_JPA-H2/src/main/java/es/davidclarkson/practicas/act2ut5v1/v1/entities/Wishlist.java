@@ -1,10 +1,8 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+@Entity
 @Table(name = "wishlists")
 public class Wishlist {
 

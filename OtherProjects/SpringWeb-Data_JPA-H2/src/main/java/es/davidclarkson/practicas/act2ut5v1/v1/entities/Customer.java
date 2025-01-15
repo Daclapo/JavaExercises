@@ -1,10 +1,10 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.List;
+
+@Entity
 @Table(name = "customers")
 public class Customer {
 
@@ -29,4 +29,12 @@ public class Customer {
 
 	@Column(nullable = false)
 	private String address;
+
+
+	@OneToMany(mappedBy = "customer")
+	private List<Order> orders;
+
+	@OneToMany(mappedBy = "customer")
+	private List<Wishlist> wishlists;
+
 }

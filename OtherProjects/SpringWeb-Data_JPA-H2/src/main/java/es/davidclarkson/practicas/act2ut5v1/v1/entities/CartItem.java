@@ -1,12 +1,12 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 
 // Clase intermedia many-to-many entre Customer(customer_id) y Product(product_id)
+@Entity
 @Table(name = "cart_items")
 public class CartItem {
 	@Id
@@ -15,11 +15,14 @@ public class CartItem {
 	private int cartItemId;
 
 	// Clave foránea
-	private int customerId;
+	@OneToOne
+	@JoinColumn(name = "customer_id", nullable = false)
+	private Customer customer;
 
 	// Clave foránea
-	// @ForeignKey(name = "product_id")
-	private int productId;
+	@OneToMany
+	@JoinColumn(name = "product_id", nullable = false)
+	private List<Product> product;
 
 	@Column(name = "quantity", nullable = false)
 	private int quantity;

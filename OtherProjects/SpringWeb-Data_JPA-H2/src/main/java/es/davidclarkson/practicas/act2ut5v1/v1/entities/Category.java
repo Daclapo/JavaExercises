@@ -1,11 +1,11 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.List;
+
+@Entity
 @Table(name = "categories")
 public class Category {
 
@@ -19,4 +19,6 @@ public class Category {
 
 	private String description;
 
+	@OneToMany(mappedBy = "category")
+	private List<Product> products;
 }
