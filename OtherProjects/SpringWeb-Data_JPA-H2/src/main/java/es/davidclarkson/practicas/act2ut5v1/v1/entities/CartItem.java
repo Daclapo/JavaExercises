@@ -1,11 +1,15 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 
 // Clase intermedia many-to-many entre Customer(customer_id) y Product(product_id)
+@Getter
+@Setter
 @Entity
 @Table(name = "cart_items")
 public class CartItem {

@@ -1,10 +1,14 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "shipments")
 public class Shipment {
@@ -15,7 +19,9 @@ public class Shipment {
 	private int shipmentId;
 
 	// Clave foránea
-	private int orderId;
+	@OneToOne
+	@JoinColumn(name = "order_id", nullable = false)
+	private Order orderId;
 
 	@Column(name = "shipment_date", nullable = false)
 	private LocalDateTime shipmentDate;

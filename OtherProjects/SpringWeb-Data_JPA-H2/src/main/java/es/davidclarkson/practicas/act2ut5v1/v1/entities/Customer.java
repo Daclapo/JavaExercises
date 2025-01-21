@@ -1,9 +1,13 @@
 package es.davidclarkson.practicas.act2ut5v1.v1.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "customers")
 public class Customer {
