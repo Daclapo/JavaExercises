@@ -20,8 +20,9 @@ public class Shipment {
 
 	// Clave foránea
 	@OneToOne
-	@JoinColumn(name = "order_id")
+	@JoinColumn(name = "order_id", nullable = false)
 	private Order order;
+
 
 	@Column(name = "shipment_date", nullable = false)
 	@ColumnDefault("CURRENT_TIMESTAMP")

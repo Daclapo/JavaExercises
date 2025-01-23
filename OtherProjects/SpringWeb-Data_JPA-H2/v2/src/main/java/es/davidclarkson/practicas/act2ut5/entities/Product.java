@@ -31,6 +31,22 @@ public class Product {
 
 	private String description;
 
-	@ManyToMany(mappedBy = "products")
+//	@ManyToMany(mappedBy = "products")
+//	private List<Category> categories;
+
+	@ManyToMany
+	@JoinTable(
+			name = "product_categories",
+			joinColumns = @JoinColumn(name = "product_id"),
+			inverseJoinColumns = @JoinColumn(name = "category_id")
+	)
 	private List<Category> categories;
+
+
+
+
+	// Relación Many-to-Many con Wishlist
+	@ManyToMany(mappedBy = "products")
+	private List<Wishlist> wishlists;
+
 }

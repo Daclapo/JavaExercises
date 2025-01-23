@@ -2,6 +2,8 @@ package es.davidclarkson.practicas.act2ut5.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "wishlists")
 public class Wishlist {
@@ -21,5 +23,16 @@ public class Wishlist {
 
 	@Column(name = "name", nullable = false)
 	private String name;
+
+
+
+	// Relación Many-to-Many con Product
+	@ManyToMany
+	@JoinTable(
+			name = "wishlist_products",
+			joinColumns = @JoinColumn(name = "wishlist_id"),
+			inverseJoinColumns = @JoinColumn(name = "product_id")
+	)
+	private List<Product> products;
 
 }

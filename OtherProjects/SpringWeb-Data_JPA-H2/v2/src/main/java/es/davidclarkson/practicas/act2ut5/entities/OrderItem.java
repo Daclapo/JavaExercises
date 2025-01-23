@@ -19,12 +19,16 @@ public class OrderItem {
 	// Clave foránea
 	@ManyToOne
 	@JoinColumn(name = "order_id", nullable = false)
-	private Order orderId;
+	private Order order;
+
+
 
 	// Clave foránea
 	@ManyToOne
 	@JoinColumn(name = "product_id", nullable = false)
-	private Product productIdOrderItem;
+	private Product product;
+	// private Product productIdOrderItem;
+
 
 	@Column(name = "quantity", nullable = false)
 	private int quantity;

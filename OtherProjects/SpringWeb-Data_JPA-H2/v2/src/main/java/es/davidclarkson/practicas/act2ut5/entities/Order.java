@@ -20,8 +20,8 @@ public class Order {
 
 	// Clave foránea
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
-	private Customer customerId;
+	@JoinColumn(name = "customer_id", nullable = false)
+	private Customer customer;
 
 	@Column(name = "order_total", nullable = false)
 	private double orderTotal;
@@ -33,4 +33,5 @@ public class Order {
 
 	@OneToOne(mappedBy = "order", optional = true)
 	private Shipment shipment;
+
 }
