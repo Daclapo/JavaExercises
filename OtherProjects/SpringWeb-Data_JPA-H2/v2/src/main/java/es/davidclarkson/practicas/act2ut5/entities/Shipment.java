@@ -1,10 +1,10 @@
-package es.davidclarkson.practicas.act2ut5v1.v1.entities;
+package es.davidclarkson.practicas.act2ut5.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Setter
@@ -14,17 +14,18 @@ import java.time.LocalDateTime;
 public class Shipment {
 
 	@Id
-	@GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "shipment_id")
 	private int shipmentId;
 
 	// Clave foránea
 	@OneToOne
-	@JoinColumn(name = "order_id", nullable = false)
-	private Order orderId;
+	@JoinColumn(name = "order_id")
+	private Order order;
 
 	@Column(name = "shipment_date", nullable = false)
-	private LocalDateTime shipmentDate;
+	@ColumnDefault("CURRENT_TIMESTAMP")
+	private LocalDateTime shipmentDate = LocalDateTime.now();
 
 	@Column(name = "zip_code", nullable = false)
 	private String zipCode;

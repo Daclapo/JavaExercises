@@ -1,4 +1,4 @@
-package es.davidclarkson.practicas.act2ut5v1.v1.entities;
+package es.davidclarkson.practicas.act2ut5.entities;
 
 
 import jakarta.persistence.*;
@@ -14,15 +14,17 @@ import java.util.List;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id")
 	private int categoryId;
 
 	@Column(name = "name", nullable = false)
 	private String name;
 
+	@Column(name = "description", nullable = true)
 	private String description;
 
-	@OneToMany(mappedBy = "category")
+//	@OneToMany(mappedBy = "category")
+	@ManyToMany(mappedBy = "categories")
 	private List<Product> products;
 }
